@@ -24,7 +24,7 @@ class ProgramController extends AbstractController
     {
         $program = $programRepository->findOneBy(['id' => $id]);
         if(!$program) {
-            throw $this->createNotfoundException(':( The program does not exist dude');
+            throw $this->createNotfoundException('The program does not exist');
             
         }
         return $this->render('program/show.html.twig', [

@@ -13,21 +13,18 @@ class ProgramController extends AbstractController
     #[Route('/', name: 'index')]
     public function index(ProgramRepository $programRepository): Response
     {
-        $programs = $programRepository->findAll();
+        $program = $programRepository->findAll();
         return $this->render('program/index.html.twig', [
+            'website' => 'Wild Series',
             'programs' => $programs,
         ]);
     }
 
     #[Route('/{id}', requirements:['id'=>'\d+'], methods: ['GET'], name: 'show')]
     public function show(int $id, ProgramRepository $programRepository): Response
-    {
-        $program = $programRepository->findOneBy(['id' => $id]);
-        if(!$program) {
-            throw $this->createNotfoundException(':( The program does not exist dude');
-            
-        }
+    { = $programRepository->find($id);
         return $this->render('program/show.html.twig', [
+            'website' => 'Wild Series',
             'program' => $program,
         ]);
     }

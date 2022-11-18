@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Category #{{ category.name}}{% endblock %}
+
+{% block body %}
+    <h1>{{category.name}}
+    {# <div class="media-body">
+        <p>{{ category.program.poster }}</p>
+        <p>{{ category.program.title }}</p>
+        <p>{{ category.program.synopsis }}</p>
+    </div>
+
+    <a href="{{ path('category_index') }}">
+        Back to categories
+    </a> #}
+{% endblock %}

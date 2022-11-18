@@ -23,10 +23,6 @@ class ProgramController extends AbstractController
     public function show(int $id, ProgramRepository $programRepository): Response
     {
         $program = $programRepository->findOneBy(['id' => $id]);
-        if(!$program) {
-            throw $this->createNotfoundException(':( The program does not exist dude');
-            
-        }
         return $this->render('program/show.html.twig', [
             'program' => $program,
         ]);
